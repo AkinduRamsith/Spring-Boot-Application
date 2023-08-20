@@ -1,5 +1,6 @@
-package edu.icet.dto;
+package edu.icet.dao;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,8 +8,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
+@Entity
+@Table(name = "student")
+public class StudentEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String firstName;
+
+    @Column(name = "surname")
     private String lastName;
     private int batch;
     private String institute;

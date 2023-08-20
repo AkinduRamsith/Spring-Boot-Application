@@ -1,5 +1,6 @@
 package edu.icet.contoller;
 
+import edu.icet.dao.StudentEntity;
 import edu.icet.dto.Student;
 import edu.icet.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
@@ -12,18 +13,22 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @Slf4j
+@RequestMapping("/student")
 public class StudentController {
     @Autowired
     StudentService service;
-    @GetMapping("/student/{name}")
-    public List<Student> getStudent(@PathVariable String name,
-                                    @RequestParam String id,
-                                    @RequestParam String age){
-        log.debug(name);
+    @GetMapping
+    public Iterable<StudentEntity> getStudent(){
       return service.getStudent();
     }
-    @PostMapping("/student")
-    public Student createStudent(@RequestBody Student student){
-        return student;
+    @PostMapping
+    public void createStudent(@RequestBody Student student){
+       service.createStudent(student);
     }
+    @GetMapping("/{firstName}")
+    public Iterable<StudentEntity> getStudentByFirstName(@PathVariable String firstName){
+        return service.getStudentByFirstName(firstName);
+    }
+
+
 }

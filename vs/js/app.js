@@ -1,7 +1,7 @@
 
 let studentTable = document.getElementById("tbl-student");
 
-fetch("http://localhost:8080/student")
+/*fetch("http://localhost:8080/student")
     .then(response => response.json())
     .then(res => {
         let tblBody = `<tr>
@@ -16,4 +16,26 @@ fetch("http://localhost:8080/student")
             </tr>`;
         });
         studentTable.innerHTML = tblBody;
-    })
+    })*/
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    
+    var raw = JSON.stringify({
+      "firstName": "Akindu",
+      "lastName": "ICET"
+    });
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+    
+    fetch("http://localhost:8080/student", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
+
