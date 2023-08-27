@@ -37,10 +37,10 @@ public class StudentServiceImplV2 implements StudentService {
     public List<Student> getStudentByFirstName() {
         Iterable<StudentEntity> studentList = studentRepository.findAll();
         Iterator<StudentEntity> iterator = studentList.iterator();
-        List<Student> studentModels = new ArrayList<>();
+        List<Student> studentModel = new ArrayList<>();
         while (iterator.hasNext()) {
             StudentEntity entity = iterator.next();
-            studentModels.add(Student.builder()
+            studentModel.add(Student.builder()
                     .id(entity.getId())
                     .firstName(entity.getFirstName())
                     .lastName(entity.getLastName())
@@ -48,6 +48,6 @@ public class StudentServiceImplV2 implements StudentService {
                     .institute(entity.getInstitute())
                     .build());
         }
-        return studentModels;
+        return studentModel;
     }
 }
