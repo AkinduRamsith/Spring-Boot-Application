@@ -54,6 +54,7 @@ let studentList=[];
 
 studentList.push("Akindu");
 studentList.push("Kamal");
+studentList.push("Kamalaa");
 studentList.push("Amal");
 studentList.push("Nimal");
 
