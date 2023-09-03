@@ -53,7 +53,7 @@ let studentTable = document.getElementById("tbl-student");
 let studentList=[];
 
 studentList.push("Akindu");
-studentList.push("Kamal");
+studentList.push("Kamala");
 studentList.push("Amal");
 studentList.push("Nimal");
 
