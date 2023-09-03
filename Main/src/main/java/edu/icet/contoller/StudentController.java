@@ -18,7 +18,7 @@ public class StudentController {
 //    @GetMapping
 //    public Iterable<StudentEntity> getStudent(){
 //      return service.getStudent();
-//    Ite
+//    }
     @PostMapping
     public void createStudent(@RequestBody Student student){
        service.createStudent(student);
